@@ -27,17 +27,29 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == computerChoice)
-        result = 'tie'
+        result = `You chose ${humanChoice} Computer chose ${computerChoice} it is a tie`
     else if (humanChoice == 'rock' && computerChoice == 'paper' ||
         humanChoice == 'paper' && computerChoice == 'scissors' ||
         humanChoice == 'scissors' && computerChoice == 'rock'
     ) {
         computerScore++
-        result = 'lost'
+        result = `You chose ${humanChoice} Computer chose ${computerChoice} you lost`
     } else {
         humanScore++
-        result = 'win'
+        result = `You chose ${humanChoice} Computer chose ${computerChoice} you won`
     }
 
     return result
 }
+
+function playGame() {
+    let round = 0;
+    while (round < 5) {
+        console.log(playRound(getHumanChoice(), getComputerChoice()))
+        round++
+    }
+
+    console.log(`Result is you won ${humanScore} computer won ${computerScore} tie ${5 - humanScore - computerScore} `)
+}
+
+playGame()
