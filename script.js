@@ -1,8 +1,7 @@
-let computerChoice, humanChoice
+let computerChoice, humanChoice, result
 
 function getComputerChoice() {
     let randomNumber = Math.random()
-    console.log(randomNumber)
 
     if (randomNumber < 1 / 3)
         computerChoice = 'rock'
@@ -22,3 +21,20 @@ function getHumanChoice() {
         return humanChoice
 
 }
+
+function playRound(humanChoice, computerChoice) {
+
+    if (humanChoice == computerChoice)
+        result = 'tie'
+    else if (humanChoice == 'rock' && computerChoice == 'paper' ||
+        humanChoice == 'paper' && computerChoice == 'scissors' ||
+        humanChoice == 'scissors' && computerChoice == 'rock'
+    )
+        result = 'lost'
+    else
+        result = 'win'
+
+    return result
+
+}
+
