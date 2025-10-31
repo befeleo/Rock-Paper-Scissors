@@ -45,6 +45,7 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     let round = 0;
     while (round < 5) {
+        console.log(`Round ${round + 1}`)
         console.log(playRound(getHumanChoice(), getComputerChoice()))
         round++
     }
