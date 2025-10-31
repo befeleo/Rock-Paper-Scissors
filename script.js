@@ -1,4 +1,4 @@
-let computerChoice, let humanChoice
+let computerChoice, humanChoice
 
 function getComputerChoice() {
     let randomNumber = Math.random()
@@ -14,3 +14,11 @@ function getComputerChoice() {
     return computerChoice
 }
 
+function getHumanChoice() {
+
+    humanChoice = prompt('Choose between rock paper & scissors', '').trim().toLowerCase()
+
+    if (humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors')
+        return humanChoice
+
+}
