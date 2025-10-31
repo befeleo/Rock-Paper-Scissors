@@ -1,4 +1,6 @@
 let computerChoice, humanChoice, result
+let computerScore = 0
+let humanScore = 0
 
 function getComputerChoice() {
     let randomNumber = Math.random()
@@ -29,12 +31,13 @@ function playRound(humanChoice, computerChoice) {
     else if (humanChoice == 'rock' && computerChoice == 'paper' ||
         humanChoice == 'paper' && computerChoice == 'scissors' ||
         humanChoice == 'scissors' && computerChoice == 'rock'
-    )
+    ) {
+        computerScore++
         result = 'lost'
-    else
+    } else {
+        humanScore++
         result = 'win'
+    }
 
     return result
-
 }
-
