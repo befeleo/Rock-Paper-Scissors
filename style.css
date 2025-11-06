@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Momo Trust Display";
+  font-weight: 900;
 }
 
 .container {
@@ -9,26 +12,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
   height: 100vh;
 }
 .play-ground {
+  background-color: #353535;
+  color: #edf0f0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 1000px;
   height: 600px;
-  border: 1px solid;
   padding: 20px;
 }
 
 h1 {
   margin-bottom: 20px;
 }
-
-/* .box {
-  border: 1px solid;
-} */
 
 .score-board,
 .result-display,
@@ -44,6 +45,15 @@ h1 {
   text-align: center;
   font-size: 36px;
 }
+.reset-btn {
+  padding: 10px 40px;
+  font-size: 30px;
+  border: none;
+  background-color: #2751a3;
+  color: #edf0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .score-display {
   display: flex;
   justify-content: space-between;
@@ -55,9 +65,19 @@ h1 {
   justify-content: space-around;
   height: 400px;
 }
-/* .result {
-  border: 1px solid;
-} */
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  color: #6379c8;
+  font-size: 42px;
+}
+.p-result {
+  color: #6379c8;
+  font-size: 48px;
+}
+
 p {
   text-align: center;
 }
@@ -70,23 +90,28 @@ p {
 .img {
   width: 200px;
   height: 200px;
-  border: 1px solid;
+}
+img {
+  width: 200px;
+  height: 200px;
+  filter: invert(100%) sepia(100%) hue-rotate(200deg);
 }
 .versus {
-  font-size: 42px;
+  font-size: 48px;
 }
 .buttons {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .btn {
   padding: 10px 40px;
   font-size: 30px;
-  font-weight: 900;
   border: none;
-  background-color: #00a6f4;
+  background-color: #2751a3;
+  color: #edf0f0;
   border-radius: 5px;
   cursor: pointer;
 }
