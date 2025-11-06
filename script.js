@@ -1,25 +1,37 @@
-let computerChoice, humanChoice, result
-let computerScore = 0
-let humanScore = 0
-
+let computerChoice, humanChoice
 const rock = document.getElementById('rock')
 const paper = document.getElementById('paper')
 const scissors = document.getElementById('scissors')
 
-rock.addEventListener('click', () => {
-    getHumanChoice(rock.value)
-})
-paper.addEventListener('click', () => {
-    getHumanChoice(paper.value)
-})
-scissors.addEventListener('click', () => {
-    getHumanChoice(scissors.value)
-})
+function playGame(humanChoice, computerChoice) {
+    let computerScore = 0
+    let humanScore = 0
+    let result
 
-const getHumanChoice = (humanChoice) => {
-    return humanChoice
+    if (humanChoice == computerChoice) {
+        result = "It is a tie 🤝";
+    } else if (
+        (humanChoice == 'rock' && computerChoice == 'paper') ||
+        (humanChoice == 'paper' && computerChoice == 'scissors') ||
+        (humanChoice == 'scissors' && computerChoice == 'rock')
+    ) {
+        computerScore++;
+        result = "You won! 🎉";
+    } else {
+        humanScore++;
+        result = "Computer won! 🎉";
+    }
+
+
+    const div = document.querySelector('.result');
+    div.textContent = ''; // 🧹 Clears previous result
+
+    const p = document.createElement('p');
+    p.textContent = result;
+    div.appendChild(p);
+
+
 }
-
 
 const getComputerChoice = () => {
     const CHOICES = ['rock', 'paper', 'scissors']
@@ -27,13 +39,25 @@ const getComputerChoice = () => {
     return CHOICES[randomIndex]
 }
 
-function playGame() {
-    let round = 0;
-    while (round < 5) {
-        console.log(`Round ${round + 1}`)
-        console.log(playRound(getHumanChoice(), getComputerChoice()))
-        round++
-    }
 
-    console.log(`Result is you won ${humanScore} computer won ${computerScore} tie ${5 - humanScore - computerScore} `)
-}
+rock.addEventListener('click', () => {
+    humanChoice = rock.value
+    computerChoice = getComputerChoice()
+    playGame(humanChoice, computerChoice)
+    console.log(humanChoice)
+    console.log(computerChoice)
+})
+paper.addEventListener('click', () => {
+    humanChoice = paper.value
+    computerChoice = getComputerChoice()
+    playGame(humanChoice, computerChoice)
+    console.log(humanChoice)
+    console.log(computerChoice)
+})
+scissors.addEventListener('click', () => {
+    humanChoice = scissors.value
+    computerChoice = getComputerChoice()
+    playGame(humanChoice, computerChoice)
+    console.log(humanChoice)
+    console.log(computerChoice)
+})
