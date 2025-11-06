@@ -21,7 +21,7 @@ const getHumanChoice = (humanChoice) => {
 }
 
 
-function getComputerChoice() {
+const getComputerChoice = () => {
     const CHOICES = ['rock', 'paper', 'scissors']
     const randomIndex = Math.floor(Math.random() * 3)
     return CHOICES[randomIndex]
