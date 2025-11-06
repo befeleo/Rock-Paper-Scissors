@@ -1,13 +1,12 @@
-let computerChoice, humanChoice
+let computerChoice, humanChoice, result
+let computerScore = 0
+let humanScore = 0
 const rock = document.getElementById('rock')
 const paper = document.getElementById('paper')
 const scissors = document.getElementById('scissors')
+const reset = document.querySelector('.reset-btn');
 
 function playGame(humanChoice, computerChoice) {
-    let computerScore = 0
-    let humanScore = 0
-    let result
-
     if (humanChoice == computerChoice) {
         result = "It is a tie 🤝";
     } else if (
@@ -16,22 +15,35 @@ function playGame(humanChoice, computerChoice) {
         (humanChoice == 'scissors' && computerChoice == 'rock')
     ) {
         computerScore++;
-        result = "You won! 🎉";
+        result = "Computer won! 🎉";
     } else {
         humanScore++;
-        result = "Computer won! 🎉";
+        result = "You won! 🎉";
     }
 
+    const player = document.querySelector('.player');
+    player.textContent = humanScore;
+
+    const computer = document.querySelector('.computer');
+    computer.textContent = computerScore;
 
     const div = document.querySelector('.result');
-    div.textContent = ''; // 🧹 Clears previous result
-
+    div.textContent = '';
     const p = document.createElement('p');
+    p.classList.add('p-result')
     p.textContent = result;
     div.appendChild(p);
 
-
 }
+
+reset.addEventListener('click', () => {
+    humanScore = 0;
+    computerScore = 0;
+
+    document.querySelector('.player').textContent = humanScore;
+    document.querySelector('.computer').textContent = computerScore;
+    document.querySelector('.result').textContent = 'Make your move!';
+});
 
 const getComputerChoice = () => {
     const CHOICES = ['rock', 'paper', 'scissors']
@@ -39,25 +51,18 @@ const getComputerChoice = () => {
     return CHOICES[randomIndex]
 }
 
-
 rock.addEventListener('click', () => {
     humanChoice = rock.value
     computerChoice = getComputerChoice()
     playGame(humanChoice, computerChoice)
-    console.log(humanChoice)
-    console.log(computerChoice)
 })
 paper.addEventListener('click', () => {
     humanChoice = paper.value
     computerChoice = getComputerChoice()
     playGame(humanChoice, computerChoice)
-    console.log(humanChoice)
-    console.log(computerChoice)
 })
 scissors.addEventListener('click', () => {
     humanChoice = scissors.value
     computerChoice = getComputerChoice()
     playGame(humanChoice, computerChoice)
-    console.log(humanChoice)
-    console.log(computerChoice)
 })
