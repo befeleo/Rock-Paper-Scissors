@@ -2,6 +2,26 @@ let computerChoice, humanChoice, result
 let computerScore = 0
 let humanScore = 0
 
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scissors = document.getElementById('scissors')
+
+rock.addEventListener('click', () => {
+    getHumanChoice(rock.value)
+})
+paper.addEventListener('click', () => {
+    getHumanChoice(paper.value)
+})
+scissors.addEventListener('click', () => {
+    getHumanChoice(scissors.value)
+})
+
+const getHumanChoice = (humanChoice) => {
+    console.log(humanChoice)
+    return humanChoice
+}
+
+
 function getComputerChoice() {
     let randomNumber = Math.random()
 
@@ -15,14 +35,6 @@ function getComputerChoice() {
     return computerChoice
 }
 
-function getHumanChoice() {
-
-    humanChoice = prompt('Choose between rock paper & scissors', '').trim().toLowerCase()
-
-    if (humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors')
-        return humanChoice
-
-}
 
 function playRound(humanChoice, computerChoice) {
 
@@ -53,4 +65,4 @@ function playGame() {
     console.log(`Result is you won ${humanScore} computer won ${computerScore} tie ${5 - humanScore - computerScore} `)
 }
 
-playGame()
+// playGame()
