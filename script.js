@@ -34,6 +34,12 @@ function playGame(humanChoice, computerChoice) {
     p.textContent = result;
     div.appendChild(p);
 
+    const playerImage = document.querySelector('.player-image')
+    playerImage.src = `images/${humanChoice}.svg`
+
+    const computerImage = document.querySelector('.computer-image')
+    computerImage.src = `images/${computerChoice}.svg`
+    computerImage.style.transform = 'scaleX(-1)';
 }
 
 reset.addEventListener('click', () => {
@@ -66,3 +72,5 @@ scissors.addEventListener('click', () => {
     computerChoice = getComputerChoice()
     playGame(humanChoice, computerChoice)
 })
+
+
