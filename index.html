@@ -10,7 +10,7 @@
     <div class="container">
       <h1>Rock Paper Scissors</h1>
       <div class="play-ground">
-        <div class="score-board box">
+        <div class="score-board">
           <div class="reset-score">
             <button class="reset-btn">Reset</button>
           </div>
@@ -23,20 +23,24 @@
             </div>
           </div>
         </div>
-        <div class="result-display box">
+        <div class="result-display">
           <div class="result">Make your move!</div>
           <div class="images">
             <div class="img">
-              <img src="images/swords.svg" alt="" />
+              <img class="player-image" src="images/swords.svg" alt="swords" />
             </div>
             <p class="versus">VS</p>
             <div class="img">
-              <img src="images/swords.svg" alt="" />
+              <img
+                class="computer-image"
+                src="images/swords.svg"
+                alt="swords"
+              />
             </div>
           </div>
           <p>Choose your move, rock paper or scissors?</p>
         </div>
-        <div class="buttons box">
+        <div class="buttons">
           <button type="button" class="btn" id="rock" value="rock">Rock</button>
           <button type="button" class="btn" id="paper" value="paper">
             Paper
