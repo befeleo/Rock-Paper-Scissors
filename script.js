@@ -36,10 +36,12 @@ function playGame(humanChoice, computerChoice) {
 
     const playerImage = document.querySelector('.player-image')
     playerImage.src = `images/${humanChoice}.svg`
+    playerImage.alt = `${humanChoice}`
 
     const computerImage = document.querySelector('.computer-image')
     computerImage.src = `images/${computerChoice}.svg`
     computerImage.style.transform = 'scaleX(-1)';
+    computerImage.alt = `${computerChoice} `
 }
 
 reset.addEventListener('click', () => {
@@ -49,6 +51,14 @@ reset.addEventListener('click', () => {
     document.querySelector('.player').textContent = humanScore;
     document.querySelector('.computer').textContent = computerScore;
     document.querySelector('.result').textContent = 'Make your move!';
+
+    const images = document.querySelectorAll('img');
+
+    images.forEach(img => {
+        img.src = `images/swords.svg`;
+    });
+
+
 });
 
 const getComputerChoice = () => {
